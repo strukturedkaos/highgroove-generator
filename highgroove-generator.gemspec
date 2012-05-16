@@ -14,4 +14,6 @@ Gem::Specification.new do |gem|
   gem.name          = "highgroove_generator"
   gem.require_paths = ["lib"]
   gem.version       = Highgroove::Generator::VERSION
+
+  gem.add_dependency "rails"
 end
