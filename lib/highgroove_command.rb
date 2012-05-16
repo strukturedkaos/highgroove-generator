@@ -9,6 +9,8 @@ class HighgrooveCommand < Thor
     run "rails new #{name} --skip-bundle -T -q -d #{options[:database]}"
     inside name do
       run "git init -q"
+      gsub_file "Gemfile", /^ *#.*$/, ''
+      gsub_file "Gemfile", /^ *$\n/, ''
       run "bundle install --quiet"
     end
   end
