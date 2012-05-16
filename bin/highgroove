@@ -1,3 +1,4 @@
 #!/usr/bin/env ruby
+require_relative '../lib/highgroove_command'
 
-puts `rails new test_application`
+HighgrooveCommand.start

@@ -16,4 +16,5 @@ Gem::Specification.new do |gem|
   gem.version       = Highgroove::Generator::VERSION
 
   gem.add_dependency "rails"
+  gem.add_dependency "thor"
 end
