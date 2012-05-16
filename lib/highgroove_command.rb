@@ -3,10 +3,8 @@ require "thor"
 class HighgrooveCommand < Thor
   include Thor::Actions
 
-  default_task :generate_project
-
-  desc "generate_project", "Generates a new project"
-  def generate_project
-    run 'rails new test_application'
+  desc "new NAME", "Generates a new project with the given name"
+  def new(name)
+    run "rails new #{name}"
   end
 end
