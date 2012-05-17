@@ -20,6 +20,7 @@ class HighgrooveCommand < Thor
             gem 'capybara'
             gem 'launchy'
             gem 'database_cleaner'
+            gem 'capybara-webkit'
           end
         EOF
       end
@@ -44,6 +45,7 @@ class HighgrooveCommand < Thor
   end
         EOF
       end
+      append_to_file 'spec/spec_helper.rb', "\nCapybara.javascript_driver = :webkit\n"
     end
   end
 end
