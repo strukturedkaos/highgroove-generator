@@ -13,6 +13,7 @@ class HighgrooveCommand < Thor
       gsub_file "Gemfile", /^ *$\n/, ''
       append_to_file "Gemfile" do
         <<-EOF
+          gem 'slim'
           group :test, :development do
             gem 'rspec-rails'
             gem 'factory_girl'
