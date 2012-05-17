@@ -5,13 +5,20 @@ Generate Rails projects the way we like them.
 ## Installation
 
 ```bash
- gem install highgroove-generator
+ gem install highgroove_generator
 ```
 
 ## Usage
 
 ```bash
- highgroove
+ # create a new project
+ highgroove new NAME
+
+ # specify the database type
+ highgroove new --database=DATABASE
+
+# get help
+highgroove help
 ```
 
 ## Contributing
