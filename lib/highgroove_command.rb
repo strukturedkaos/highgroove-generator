@@ -15,6 +15,8 @@ class HighgrooveCommand < Thor
         <<-EOF
           group :test, :development do
             gem 'rspec-rails'
+            gem 'factory_girl'
+            gem 'forgery'
           end
           group :test do
             gem 'capybara'
@@ -27,6 +29,7 @@ class HighgrooveCommand < Thor
       end
       run "bundle install --quiet"
       run "rails g rspec:install"
+      run "rails g forgery"
       insert_into_file 'spec/spec_helper.rb', "\nrequire 'capybara/rspec'", after: "require 'rspec/autorun'"
       gsub_file 'spec/spec_helper.rb', / *# Remove this[^\n]*\n *config\.fixture_path[^\n]*\n\n/m, ''
       gsub_file 'spec/spec_helper.rb', /config.use_transactional_fixtures = true/, 'config.use_transactional_fixture = false'
@@ -54,6 +57,7 @@ SimpleCov.start
 
         EOF
       end
+      append_to_file '.gitignore', "\ncoverage\n.rvmrc"
     end
   end
 end
