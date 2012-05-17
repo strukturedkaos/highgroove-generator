@@ -59,6 +59,9 @@ SimpleCov.start
         EOF
       end
       append_to_file '.gitignore', "\ncoverage\n.rvmrc"
+      remove_file 'public/index.html'
+      gsub_file 'config/database.yml', /username: .*$/, 'username:'
+      run 'rake db:create'
     end
   end
 end
