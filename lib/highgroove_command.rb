@@ -21,6 +21,7 @@ class HighgrooveCommand < Thor
             gem 'launchy'
             gem 'database_cleaner'
             gem 'capybara-webkit'
+            gem 'simplecov'
           end
         EOF
       end
@@ -46,6 +47,13 @@ class HighgrooveCommand < Thor
         EOF
       end
       append_to_file 'spec/spec_helper.rb', "\nCapybara.javascript_driver = :webkit\n"
+      prepend_to_file 'spec/spec_helper.rb' do
+        <<-EOF
+require 'simplecov'
+SimpleCov.start
+
+        EOF
+      end
     end
   end
 end
