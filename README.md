@@ -15,7 +15,7 @@ Generate Rails projects the way we like them.
  highgroove new NAME
 
  # specify the database type
- highgroove new --database=DATABASE
+ highgroove new NAME --database=DATABASE
 
 # get help
 highgroove help
