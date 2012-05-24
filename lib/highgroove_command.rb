@@ -13,19 +13,19 @@ class HighgrooveCommand < Thor
       gsub_file "Gemfile", /^ *$\n/, ''
       append_to_file "Gemfile" do
         <<-EOF
-          gem 'slim'
-          group :test, :development do
-            gem 'rspec-rails'
-            gem 'factory_girl'
-            gem 'forgery'
-          end
-          group :test do
-            gem 'capybara'
-            gem 'launchy'
-            gem 'database_cleaner'
-            gem 'capybara-webkit'
-            gem 'simplecov'
-          end
+gem 'slim'
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'factory_girl'
+  gem 'forgery'
+end
+group :test do
+  gem 'capybara'
+  gem 'launchy'
+  gem 'database_cleaner'
+  gem 'capybara-webkit'
+  gem 'simplecov'
+end
         EOF
       end
       run "bundle install --quiet"
