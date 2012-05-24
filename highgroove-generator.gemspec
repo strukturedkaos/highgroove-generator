@@ -15,6 +15,6 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = Highgroove::Generator::VERSION
 
-  gem.add_dependency "rails"
+  gem.add_dependency "rails", '>= 3.2.0'
   gem.add_dependency "thor"
 end
