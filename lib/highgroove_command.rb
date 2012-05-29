@@ -60,8 +60,15 @@ SimpleCov.start
       end
       append_to_file '.gitignore', "\ncoverage\n.rvmrc"
       remove_file 'public/index.html'
+      remove_file 'README.rdoc'
+      remove_file 'doc/README_FOR_APP'
       gsub_file 'config/database.yml', /username: .*$/, 'username:'
       run 'rake db:create'
     end
+    copy_file "templates/README.md", "README.md"
+  end
+
+  def self.source_root
+    File.dirname(__FILE__)
   end
 end
