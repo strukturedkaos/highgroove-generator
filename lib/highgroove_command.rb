@@ -5,6 +5,8 @@ class HighgrooveCommand < Thor
 
   desc "new NAME", "Generates a new project with the given name"
   method_option :database, type: :string, default: 'postgresql', aliases: '-d'
+  method_option :host, type: :string, default: 'heroku', aliases: '-h',
+    desc: 'Hosting to set up for this app. Values can be: heroku, none.'
   def new(name)
     run "rails new #{name} --skip-bundle -T -q -d #{options[:database]}"
     inside name do
@@ -18,6 +20,7 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'factory_girl'
   gem 'forgery'
+  gem 'heroku'
 end
 group :test do
   gem 'capybara'
@@ -62,6 +65,12 @@ SimpleCov.start
       remove_file 'public/index.html'
       gsub_file 'config/database.yml', /username: .*$/, 'username:'
       run 'rake db:create'
+      run 'git add .'
+      run 'git commit -m "Initial Commit"'
+      if options[:host] == 'heroku'
+        run "heroku apps:create #{name.gsub(/[^a-z0-9\-]/, '')} -s cedar"
+        run 'git push heroku master'
+      end
     end
   end
 end
