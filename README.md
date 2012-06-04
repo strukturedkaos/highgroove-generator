@@ -2,6 +2,12 @@
 
 Generate Rails projects the way we like them.
 
+## Dependencies
+
+The capybara-webkit gem which the generator installs dependes on QT
+being installed. On OSX with Hombrew run ```brew install qt``` to make
+sure QT is installed.
+
 ## Installation
 
 ```bash
@@ -16,6 +22,9 @@ Generate Rails projects the way we like them.
 
  # specify the database type
  highgroove new NAME --database=DATABASE
+
+ # Don't create a heroku app
+ highgroove new NAME --host=none
 
 # get help
 highgroove help
