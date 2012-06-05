@@ -65,7 +65,7 @@ SimpleCov.start
       gsub_file 'config/database.yml', /username: .*$/, 'username:'
       run 'rake db:create'
     end
-    copy_file "templates/README.md", "README.md"
+    copy_file "templates/README.md", "#{name}/README.md"
   end
 
   def self.source_root
