@@ -26,8 +26,8 @@ sure QT is installed.
  # Don't create a heroku app
  highgroove new NAME --host=none
 
-# get help
-highgroove help
+ # get help
+ highgroove help
 ```
 
 ## Contributing
