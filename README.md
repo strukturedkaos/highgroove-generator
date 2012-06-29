@@ -33,7 +33,7 @@ sure QT is installed.
 ## What's included?
 - [Rails](http://rubyonrails.org/) of course, currently the 3.2 branch
 - [Postgres](http://www.postgresql.org/) all your database needs
-- [Heroku](http://www.heroku.com/) for deployment ease
+- [Heroku](http://www.heroku.com/) for deployment ease, a Heroku app will automatically be created for you.
 - [Slim](http://slim-lang.com/) for templating goodness
 
 ### The testing stack includes :
