@@ -67,6 +67,11 @@ SimpleCov.start
       remove_file 'doc/README_FOR_APP'
       gsub_file 'config/database.yml', /username: .*$/, 'username:'
       run 'rake db:create'
+    end
+
+    copy_file "templates/README.md", "#{name}/README.md"
+
+    inside name do
       run 'git add .'
       run 'git commit -m "Initial Commit"'
       if options[:host] == 'heroku'
@@ -74,7 +79,6 @@ SimpleCov.start
         run 'git push heroku master'
       end
     end
-    copy_file "templates/README.md", "#{name}/README.md"
   end
 
   def self.source_root
