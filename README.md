@@ -30,6 +30,19 @@ sure QT is installed.
  highgroove help
 ```
 
+## What's included?
+- [Rails](http://rubyonrails.org/) of course, currently the 3.2 branch
+- [Postgres](http://www.postgresql.org/) all your database needs
+- [Heroku](http://www.heroku.com/) for deployment ease, a Heroku app will automatically be created for you.
+- [Slim](http://slim-lang.com/) for templating goodness
+
+### The testing stack includes :
+- [RSpec](https://github.com/rspec/rspec-rails/) for Behaviour-Driven Development
+- [Factory Girl](https://github.com/thoughtbot/factory_girl), a fixtures replacement for generating test data
+- [Forgery](https://github.com/sevenwire/forgery) for creating fake test data
+- [Capybara-Webkit](https://github.com/thoughtbot/capybara-webkit) for integration testing with javascript
+- [SimpleCov](https://github.com/colszowka/simplecov) for test coverage reporting
+
 ## Contributing
 
 1. Fork it
