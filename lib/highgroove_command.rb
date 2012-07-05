@@ -36,7 +36,7 @@ end
       run "rails g forgery"
       insert_into_file 'spec/spec_helper.rb', "\nrequire 'capybara/rspec'", after: "require 'rspec/autorun'"
       gsub_file 'spec/spec_helper.rb', / *# Remove this[^\n]*\n *config\.fixture_path[^\n]*\n\n/m, ''
-      gsub_file 'spec/spec_helper.rb', /config.use_transactional_fixtures = true/, 'config.use_transactional_fixture = false'
+      gsub_file 'spec/spec_helper.rb', /config.use_transactional_fixtures = true/, 'config.use_transactional_fixtures = false'
       insert_into_file 'spec/spec_helper.rb', after: "config.infer_base_class_for_anonymous_controllers = false\n" do
         <<-EOF
 
