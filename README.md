@@ -28,8 +28,11 @@ sure QT is installed.
 
  # Don't create a heroku app
  highgroove new NAME --host=none
+ 
+ # Don't use rvm
+ highgroove new NAME --ruby=none
 
- # get help
+ # get help, see all options
  highgroove help
 ```
 
