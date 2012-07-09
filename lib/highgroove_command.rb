@@ -72,6 +72,7 @@ SimpleCov.start
     copy_file "templates/README.md", "#{name}/README.md"
 
     inside name do
+      run 'rake db:migrate'
       run 'git add .'
       run 'git commit -m "Initial Commit"'
       if options[:host] == 'heroku'
