@@ -12,6 +12,9 @@ sure QT is installed.
 
 ```bash
  gem install highgroove_generator
+
+ # if you are using rbenv
+ rbenv rehash
 ```
 
 ## Usage
