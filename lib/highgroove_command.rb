@@ -77,6 +77,10 @@ SimpleCov.start
     end
 
     copy_file "templates/README.md", "#{name}/README.md"
+    copy_file "templates/home_controller.rb", "#{name}/app/controllers/home_controller.rb"
+    copy_file "templates/index.slim", "#{name}/app/views/home/index.slim"
+    remove_file "#{name}/config/routes.rb"
+    copy_file "templates/routes.rb", "#{name}/config/routes.rb"
 
     inside name do
       rvm_run 'rake db:migrate'
