@@ -1,4 +1,5 @@
 require "thor"
+require "active_support/inflector"
 
 class HighgrooveCommand < Thor
   include Thor::Actions
@@ -80,7 +81,7 @@ SimpleCov.start
     copy_file "templates/home_controller.rb", "#{name}/app/controllers/home_controller.rb"
     copy_file "templates/index.slim", "#{name}/app/views/home/index.slim"
     remove_file "#{name}/config/routes.rb"
-    copy_file "templates/routes.rb", "#{name}/config/routes.rb"
+    template "templates/routes.rb.erb", "#{name}/config/routes.rb"
 
     inside name do
       rvm_run 'rake db:migrate'
