@@ -84,6 +84,12 @@ SimpleCov.start
       rvm_run "rails g bootstrap:layout application fixed"
     end
 
+    # Remove css and js application files
+    remove_file "#{name}/app/assets/javascripts/application.js"
+    remove_file "#{name}/app/assets/stylesheets/application.css"
+    copy_file   "templates/application.js.coffee", "#{name}/app/assets/javascripts/application.js.coffee"
+    copy_file   "templates/application.css.scss",  "#{name}/app/assets/stylesheets/application.css.scss"
+
     copy_file "templates/README.md", "#{name}/README.md"
     copy_file "templates/home_controller.rb", "#{name}/app/controllers/home_controller.rb"
     copy_file "templates/index.slim", "#{name}/app/views/home/index.slim"
