@@ -20,6 +20,8 @@ class HighgrooveCommand < Thor
       append_to_file "Gemfile" do
         <<-EOF
 gem 'slim'
+gem 'slim-rails'
+gem 'twitter-bootstrap-rails'
 group :test, :development do
   gem 'rspec-rails'
   gem 'factory_girl'
@@ -75,6 +77,11 @@ SimpleCov.start
       remove_file 'doc/README_FOR_APP'
       gsub_file 'config/database.yml', /username: .*$/, 'username:'
       rvm_run 'rake db:create'
+
+      # Twitter bootstrap
+      rvm_run "rails g bootstrap:install"
+      remove_file "app/views/layouts/application.html.erb"
+      rvm_run "rails g bootstrap:layout application fixed"
     end
 
     copy_file "templates/README.md", "#{name}/README.md"
