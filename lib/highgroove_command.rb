@@ -21,7 +21,7 @@ class HighgrooveCommand < Thor
         <<-EOF
 gem 'slim'
 gem 'slim-rails'
-gem 'twitter-bootstrap-rails'
+gem 'bootstrap-sass', '~> 2.0.4.0'
 group :test, :development do
   gem 'rspec-rails'
   gem 'factory_girl'
@@ -78,11 +78,11 @@ SimpleCov.start
       gsub_file 'config/database.yml', /username: .*$/, 'username:'
       rvm_run 'rake db:create'
 
-      # Twitter bootstrap
-      rvm_run "rails g bootstrap:install"
-      remove_file "app/views/layouts/application.html.erb"
-      rvm_run "rails g bootstrap:layout application fixed"
     end
+
+    # Layout file
+    remove_file "#{name}/app/views/layouts/application.html.erb"
+    copy_file   "templates/layout.html.slim", "#{name}/app/views/layouts/application.html.slim"
 
     # Remove css and js application files
     remove_file "#{name}/app/assets/javascripts/application.js"
